@@ -22,16 +22,17 @@ def draw_housing():
     tess.left(90)
     tess.end_fill()
 
-    draw_housing()
-    tess.penup()
-    # Position tess onto the place where the green light should be
-    tess.forward(40)
-    tess.left(90)
-    tess.forward(50)
-    # Turn tess into a big green circle
-    tess.shape("circle")
-    tess.shapesize(3)
-    tess.fillcolor("green")
+
+draw_housing()
+tess.penup()
+# Position tess onto the place where the green light should be
+tess.forward(40)
+tess.left(90)
+tess.forward(50)
+# Turn tess into a big green circle
+tess.shape("circle")
+tess.shapesize(3)
+tess.fillcolor("green")
 # A traffic light is a kind of state machine with three states,
 # Green, Orange, Red. We number these states 0, 1, 2
 # When the machine changes state, we change tess' position and
@@ -45,16 +46,16 @@ pen_width = 1
 
 def state_green():
     global state_key
-    if state_key == "blue" or state_key == "red":
+    if state_key == "red":
         tess.pensize(pen_width)
-        tess.forward(70)
+        tess.backward(140)
         tess.fillcolor("green")
         state_key = "green"
 
 
 def state_blue():
     global state_key
-    if state_key == "green" or state_key == "red":
+    if state_key == "green":
         tess.pensize(pen_width)
         tess.forward(70)
         tess.fillcolor("blue")
@@ -63,9 +64,9 @@ def state_blue():
 
 def state_red():
     global state_key
-    if state_key == "blue" or state_key == "green":
+    if state_key == "blue":
         tess.pensize(pen_width)
-        tess.backward(70)
+        tess.forward(70)
         tess.fillcolor("red")
         state_key = "red"
 
