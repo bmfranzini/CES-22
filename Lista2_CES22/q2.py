@@ -33,11 +33,6 @@ tess.forward(50)
 tess.shape("circle")
 tess.shapesize(3)
 tess.fillcolor("green")
-# A traffic light is a kind of state machine with three states,
-# Green, Orange, Red. We number these states 0, 1, 2
-# When the machine changes state, we change tess' position and
-# her fillcolor.
-# This variable holds the current state of the machine
 
 
 state_key = "green"
@@ -72,9 +67,6 @@ def state_red():
 
 
 wn.ontimer(state_blue, 0)
-
-
-# Bind the event handler to the space key.
 
 wn.listen() # Listen for events
 wn.mainloop()
