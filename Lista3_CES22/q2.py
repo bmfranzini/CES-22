@@ -1,20 +1,17 @@
 
 def fn_decorate(func):
     def wrapper(*args, **kwargs):
-        return "{0}".format(func(*args, **kwargs))
+        return "<p>{0}<\p>".format(func(*args, **kwargs))
     return wrapper
 
 
-class Person(object):
-    def __init__(self):
-        self.name = "Bruno"
-        self.family = "Franzini"
-
-    @fn_decorate
-    def get_fullname(self):
-        return self.name+" is from "+self.family +"'s family"
+@fn_decorate
+def restaurant(*args, **kwargs):
+    cost = 0
+    for arg in args:
+        cost += kwargs[arg]
+    return "The total order cost is " + str(cost)
 
 
-me = Person()
+print(restaurant("BigMac", "Cheeseburger", "FrenchFries", "Coke", BigMac= 7, Cheeseburger= 1, FrenchFries= 3, Coke= 2, BigTasty= 8, MilkShake= 5))
 
-print(me.get_fullname())
