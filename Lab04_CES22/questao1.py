@@ -1,6 +1,8 @@
 from bridge import *
 from factory import *
 
+# casos de teste para as implementacoes feitas na questao 1, utilizando Bridge e Factory
+
 print("Vamos fazer um carro com motor eletrico")
 fazerCarro = FazerCarro()
 client_code_factory(fazerCarro)
