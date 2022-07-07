@@ -7,9 +7,11 @@ class FabricaBoloAbstrata(ABC):
     def criar_bolo_cenoura(self) -> BoloCenouraAbstrato:
         pass
 
+    @abstractmethod
     def criar_bolo_mandioca(self) -> BoloMandiocaAbstrato:
         pass
-
+    
+    @abstractmethod
     def criar_bolo_chocolate(self) -> BoloChocolateAbstrato:
         pass
 
