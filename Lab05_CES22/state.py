@@ -34,11 +34,11 @@ class State(ABC):
         self._contexto = contexto
 
     @abstractmethod
-    def handle1(self) -> None:
+    def transicao1(self) -> None:
         pass
 
     @abstractmethod
-    def handle2(self) -> None:
+    def transicao2(self) -> None:
         pass
 
 
