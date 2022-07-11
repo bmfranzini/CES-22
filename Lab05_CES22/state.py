@@ -42,31 +42,34 @@ class State(ABC):
         pass
 
 
-# criamos os estados concretos Draf, Moderation e Published da nossa maquina de estados
+# criamos os estados concretos Draft, Moderation e Published da nossa maquina de estados
 class DraftState(State):
     def transicao1(self) -> None:
         print("Published by User -> Agora vamos para o estado: Moderation")
-        self.contexto.transition_to(ModerationState())
+        self.contexto.transicao_para(ModerationState())
 
     def transicao2(self) -> None:
         print("Published by Admin -> Agora vamos para o estado: Published")
-        self.contexto.transition_to(PublishedState())
+        self.contexto.transicao_para(PublishedState())
 
 
 class ModerationState(State):
     def transicao1(self) -> None:
-        print("Review Failed -> Agora vamos para o estado: Draft")
-        self.contexto.transition_to(DraftState())
+        print("Approved by Admin -> Agora vamos para o estado: Published")
+        self.contexto.transicao_para(PublishedState())
 
     def transicao2(self) -> None:
-        print("Approved by Admin -> Agora vamos para o estado: Published")
-        self.contexto.transition_to(PublishedState())
+        print("Review Failed -> Agora vamos para o estado: Draft")
+        self.contexto.transicao_para(DraftState())
 
 
 class PublishedState(State):
     def transicao1(self) -> None:
         print("Publication expired -> Agora vamos para o estado: Draft")
-        self.contexto.transition_to(DraftState())
+        self.contexto.transicao_para(DraftState())
+
+    def transicao2(self) -> None:
+        pass
 
 
 
